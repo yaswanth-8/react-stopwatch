@@ -20,6 +20,10 @@ steps:
       npm run build
     displayName: "npm install and build"
 
+  - script: |
+      npm install -g netlify-cli
+    displayName: "Install Netlify CLI"
+
   - task: aliencube.netlify-cli-extensions.deploy-task.deploy@1
     displayName: "Deploy to Netlify"
     inputs:
