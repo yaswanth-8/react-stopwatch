@@ -23,13 +23,17 @@ steps:
   - script: |
       npm install -g netlify-cli
     displayName: "Install Netlify CLI"
+  
+  - script: |
+      npm bin -g
+    displayName: "Get Path"
 
   - script: |
       echo "##vso[task.setvariable variable=PATH]$(npm bin -g):$(PATH)"
     displayName: "Update PATH"
 
   - task: aliencube.netlify-cli-extensions.deploy-task.deploy@1
-    displayName: "Deploy to Netlify"
-    inputs:
-      authToken: "7SyEL8NQBugfVzmImsDKaKdv6qDCqUL8VMTz7hOKODU"
-      siteId: "1076d88f-a7c3-4580-b05f-ee60574de9f8"
+  displayName: 'Deploy to Netlify'
+  inputs:
+    authToken: 7SyEL8NQBugfVzmImsDKaKdv6qDCqUL8VMTz7hOKODU
+    siteId: '1076d88f-a7c3-4580-b05f-ee60574de9f8'
